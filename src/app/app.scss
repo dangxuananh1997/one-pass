@@ -15,7 +15,20 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+.tabs-md .tabbar {
+  background: #718791;
+  .tab-button-icon {
+    color: #F5F5F6;
+  }
+}
+.tabs-md .tab-button {
+  color: #F5F5F6;
+}
 .tabs-md .tab-button[aria-selected=true] {
-  background: rgba($color: #abcaff, $alpha: 0.5);
+  background: rgba($color: #455a64, $alpha: 0.5);
   border-radius: 5px;
+  color: white;
+  .tab-button-icon {
+    color: white;
+  }
 }

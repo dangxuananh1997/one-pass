@@ -1,0 +1,30 @@
+site {
+  div.image {
+    position: relative;
+    height: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid grey;
+    overflow: hidden;
+    img {
+      height: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  h3.site {
+    font-weight: bold;
+  }
+  h5.username, h5.password {
+    color: grey;
+  }
+  ion-col:last-child {
+    text-align: right;
+    ion-icon {
+      font-size: 2em;
+      margin-right: 0px;
+    }
+  }
+}

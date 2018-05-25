@@ -1,7 +1,7 @@
 page-home {
   ion-header {
     div.toolbar-background-md {
-      background: #488aff;
+      background: #1c313a;
     }
     ion-title div, ion-icon {
       color: white !important;
@@ -9,7 +9,7 @@ page-home {
   }
   ion-item.search-box {
     padding: 16px;
-    background: rgb(207, 207, 207);
+    background: #455a64;
     div.item-inner {
       background: #fff;
       padding-left: 10px;
@@ -32,13 +32,6 @@ page-home {
       padding-left: 0 !important;
       ion-label {
         margin: 0;
-        div.image {
-          height: 100%;
-          padding: 10px;
-          border-radius: 5px;
-          border: 1px solid #000;
-          
-        }
       }
     }
   }

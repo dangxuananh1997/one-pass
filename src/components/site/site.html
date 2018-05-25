@@ -1,0 +1,20 @@
+<ion-grid>
+  <ion-row>
+    <ion-col col-3>
+      <div class="image">
+        <img src="{{site.imageUrl}}">
+      </div>
+    </ion-col>
+    <ion-col col-7>
+      <div class="site-info">
+        <h3 class="site">{{site.siteName}}</h3>
+        <h5 class="username">Username: {{site.username}}</h5>
+        <h5 class="password">Password: {{showPassword ? site.password : '*********'}}</h5>
+      </div>
+    </ion-col>
+    <ion-col col-2>
+      <ion-icon name="ios-eye-outline" item-end *ngIf="!showPassword" (click)="showPassword = true"></ion-icon>
+      <ion-icon name="ios-eye-off-outline" item-end *ngIf="showPassword" (click)="showPassword = false"></ion-icon>
+    </ion-col>
+  </ion-row>
+</ion-grid>
