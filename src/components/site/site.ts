@@ -14,6 +14,10 @@ export class SiteComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  showSiteOptions() {
+    console.log('clicked');
     
   }
 

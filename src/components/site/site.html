@@ -1,11 +1,11 @@
 <ion-grid>
   <ion-row>
-    <ion-col col-3>
+    <ion-col col-3 (click)="showSiteOptions()">
       <div class="image">
         <img src="{{site.imageUrl}}">
       </div>
     </ion-col>
-    <ion-col col-7>
+    <ion-col col-7 (click)="showSiteOptions()">
       <div class="site-info">
         <h3 class="site">{{site.siteName}}</h3>
         <h5 class="username">Username: {{site.username}}</h5>
