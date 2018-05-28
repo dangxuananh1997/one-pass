@@ -1,17 +1,9 @@
 page-home {
-  ion-header {
-    div.toolbar-background-md {
-      background: #1c313a;
-    }
-    ion-title div, ion-icon {
-      color: white !important;
-    }
-  }
   ion-item.search-box {
     padding: 16px;
-    background: #455a64;
+    background: color($colors, primary);
     div.item-inner {
-      background: #fff;
+      background: color($colors, secondary);
       padding-left: 10px;
       padding-right: 10px !important;
       border-radius: 5px;
