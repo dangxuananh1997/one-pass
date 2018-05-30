@@ -11,6 +11,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { ToolsPage } from '../pages/tools/tools';
 import { SettingsPage } from '../pages/settings/settings';
 import { ComponentsModule } from '../components/components.module';
+import { AddSitePage } from '../pages/add-site/add-site';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ComponentsModule } from '../components/components.module';
     HomePage,
     ToolsPage,
     SettingsPage,
+    AddSitePage,
     TabsPage
   ],
   imports: [
@@ -31,6 +33,7 @@ import { ComponentsModule } from '../components/components.module';
     HomePage,
     ToolsPage,
     SettingsPage,
+    AddSitePage,
     TabsPage
   ],
   providers: [

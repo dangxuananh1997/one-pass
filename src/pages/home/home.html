@@ -1,11 +1,6 @@
 <ion-header>
   <ion-navbar>
     <ion-title>Home</ion-title>
-    <ion-buttons end>
-      <button ion-button icon-only (click)="addSite()">
-        <ion-icon name="add"></ion-icon>
-      </button>
-    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -22,9 +17,15 @@
   <div class="site-list">
     <ion-list>
       <ion-item *ngFor="let site of siteList">
-        <site [site]="site"></site>
+        <site [site]="site" (deleteSite)="deleteSite($event)"></site>
       </ion-item>
     </ion-list>
   </div>
 
 </ion-content>
+
+<ion-fab>
+  <button ion-fab (click)="addSite()" color="primary">
+    <ion-icon name="add"></ion-icon>
+  </button>
+</ion-fab>

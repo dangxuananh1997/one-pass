@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Site } from '../../models/site';
 import { ActionSheetController } from 'ionic-angular';
 
@@ -8,6 +8,7 @@ import { ActionSheetController } from 'ionic-angular';
 })
 export class SiteComponent implements OnInit {
   @Input() site: Site;
+  @Output() deleteSite: EventEmitter<number> = new EventEmitter<number>();
 
   showPassword: boolean = false;
 
@@ -45,7 +46,9 @@ export class SiteComponent implements OnInit {
           text: 'Delete',
           cssClass: 'danger',
           icon: 'ios-trash-outline',
-          handler: () => { }
+          handler: () => {
+            this.deleteSite.emit(site.id);
+          }
         }
       ]
     });
