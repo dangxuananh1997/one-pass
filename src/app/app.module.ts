@@ -12,6 +12,8 @@ import { ToolsPage } from '../pages/tools/tools';
 import { SettingsPage } from '../pages/settings/settings';
 import { ComponentsModule } from '../components/components.module';
 import { AddSitePage } from '../pages/add-site/add-site';
+import { SiteProvider } from '../providers/site/site';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { AddSitePage } from '../pages/add-site/add-site';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp),
     ComponentsModule
   ],
@@ -39,7 +42,8 @@ import { AddSitePage } from '../pages/add-site/add-site';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    SiteProvider
   ]
 })
 export class AppModule {}
