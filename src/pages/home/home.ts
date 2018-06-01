@@ -35,7 +35,7 @@ export class HomePage implements OnInit {
   deleteSite(id: number): void {
     this.alertCtrl.create({
       title: 'Delete site?',
-      message: 'Delete username and password form this site?',
+      message: 'Delete username and password from this site?',
       buttons: [
         {
           text: 'Delete',
