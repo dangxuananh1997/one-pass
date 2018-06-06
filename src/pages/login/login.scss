@@ -1,0 +1,31 @@
+page-login {
+  ion-content {
+    background: rgb(129,156,169);
+    background: linear-gradient(180deg, rgba(129,156,169,1) 0%, rgba(41,67,78,1) 100%);
+  }
+  div.image {
+    text-align: center;
+    padding-top: 40px;
+    ion-col.name {
+      font-family: Pacifico;
+      font-size: 3em;
+      color: color($colors, primaryText);
+      line-height: 5px;
+      p {
+        margin-bottom: -5px;
+      }
+    }
+  }
+  div.login-form {
+    padding: 20px;
+    padding-top: 140px;
+    text-align: center;
+    ion-item {
+      background: none;
+      border-bottom: 2px solid #fff;
+    }
+    button {
+      margin-top: 30px;
+    }
+  }
+}
