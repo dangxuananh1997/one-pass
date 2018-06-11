@@ -1,14 +1,17 @@
 page-login {
   ion-content {
-    background: rgb(129,156,169);
-    background: linear-gradient(180deg, rgba(129,156,169,1) 0%, rgba(41,67,78,1) 100%);
+    // background: rgb(129,156,169);
+    // background: linear-gradient(180deg, rgba(129,156,169,1) 0%, rgba(41,67,78,1) 100%);
+      background: #232526;  /* fallback for old browsers */
+      background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to top, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   }
   div.image {
     text-align: center;
     padding-top: 40px;
-    ion-col.name {
+    div.name {
       font-family: Pacifico;
-      font-size: 3em;
+      font-size: 5em;
       color: color($colors, primaryText);
       line-height: 5px;
       p {
@@ -20,12 +23,36 @@ page-login {
     padding: 20px;
     padding-top: 140px;
     text-align: center;
-    ion-item {
-      background: none;
-      border-bottom: 2px solid #fff;
+    ion-row {
+      margin-bottom: 20px;
+      ion-col {
+        padding: 0px;
+        margin-bottom: 5px;
+        text-align: right;
+        input {
+          width: 100%;
+          height: 40px;
+          border: none;
+          border-bottom: 1px solid #adadb16e;
+          padding: 0;
+          margin-bottom: 5px;
+          background: none;
+          color: color($colors, primaryText);
+        }
+        label.forget-password {
+          color: color($colors, lightText);
+          margin-top: 5px;
+        }
+      }
     }
-    button {
-      margin-top: 30px;
+    button.login-button {
+      background: #232526 !important;
+      color: white;
+      margin-bottom: 10px;
+    }
+    button.register-button {
+      background: rgba(0, 0, 0, 0) !important;
+      color: white;
     }
   }
 }

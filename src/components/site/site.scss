@@ -7,7 +7,7 @@ site {
     height: 55px;
     padding: 10px;
     border-radius: 5px;
-    border: 1px solid grey;
+    // border: 1px solid grey;
     overflow: hidden;
     img {
       height: 100%;
@@ -18,10 +18,10 @@ site {
     }
   }
   h3.site {
-    font-weight: bold;
+    // font-weight: bold;
   }
   h5.username, h5.password {
-    color: grey;
+    color: color($colors, lightText);
   }
   ion-col:last-child {
     text-align: right;
