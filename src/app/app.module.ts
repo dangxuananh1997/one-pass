@@ -15,6 +15,7 @@ import { AddSitePage } from '../pages/add-site/add-site';
 import { SiteProvider } from '../providers/site/site';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginPage } from '../pages/login/login';
+import { SiteDetailsPage } from '../pages/site-details/site-details';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { LoginPage } from '../pages/login/login';
     SettingsPage,
     AddSitePage,
     TabsPage,
-    LoginPage
+    LoginPage,
+    SiteDetailsPage
   ],
   imports: [
     BrowserModule,
@@ -40,7 +42,8 @@ import { LoginPage } from '../pages/login/login';
     SettingsPage,
     AddSitePage,
     TabsPage,
-    LoginPage
+    LoginPage,
+    SiteDetailsPage
   ],
   providers: [
     StatusBar,

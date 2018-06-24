@@ -43,3 +43,12 @@ ion-tabs.tabs-md {
 button.action-sheet-button.danger {
   color: color($colors, danger);
 }
+
+//popover
+.popover-md .popover-content {
+  width: 320px !important;
+  height: 400px !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+}

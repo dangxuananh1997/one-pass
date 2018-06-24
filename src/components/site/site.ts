@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Site } from '../../models/site';
-import { ActionSheetController } from 'ionic-angular';
+import { ActionSheetController, PopoverController } from 'ionic-angular';
+import { SiteDetailsPage } from '../../pages/site-details/site-details';
 
 @Component({
   selector: 'site',
@@ -12,25 +13,30 @@ export class SiteComponent implements OnInit {
 
   showPassword: boolean = false;
 
-  constructor(public actionSheetCtrl: ActionSheetController) {
+  constructor(public actionSheetCtrl: ActionSheetController, public popoverCtrl: PopoverController) {
   }
 
   ngOnInit() {
   }
 
-  showSiteOptions(site: Site) {
+  showSiteOptions(site: Site): void {
     let actionSheet = this.actionSheetCtrl.create({
       buttons: [
         {
           text: 'Show details',
           icon: 'ios-book-outline',
           cssClass: 'tests',
-          handler: () => { }
+          handler: () => {
+            actionSheet.dismiss().then(() => {
+              this.showDetails();
+            });
+            return false;
+          }
         }, 
         {
           text: 'Copy username',
           icon: 'ios-copy-outline',
-          handler: () => { }
+          handler: () => { alert(); }
         }, 
         {
           text: 'Copy password',
@@ -53,7 +59,11 @@ export class SiteComponent implements OnInit {
       ]
     });
     actionSheet.present();
-    
+  }
+
+  async showDetails() {
+    const popover = this.popoverCtrl.create(SiteDetailsPage);
+    popover.present();
   }
 
 }
