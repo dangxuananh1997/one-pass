@@ -1,3 +1,23 @@
 page-site-details {
-
+  p.site-name {
+    margin: 0;
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    top: 50% !important;
+    transform: translateY(-50%);
+  }
+  button {
+    width: 100%;
+  }
+  ion-col.icons {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    text-align: right;
+    button {
+      margin: 0;
+    }
+  }
 }

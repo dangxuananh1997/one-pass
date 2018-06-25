@@ -28,7 +28,7 @@ export class SiteComponent implements OnInit {
           cssClass: 'tests',
           handler: () => {
             actionSheet.dismiss().then(() => {
-              this.showDetails();
+              this.showDetails(site);
             });
             return false;
           }
@@ -61,8 +61,8 @@ export class SiteComponent implements OnInit {
     actionSheet.present();
   }
 
-  async showDetails() {
-    const popover = this.popoverCtrl.create(SiteDetailsPage);
+  async showDetails(site: Site) {
+    const popover = this.popoverCtrl.create(SiteDetailsPage, site);
     popover.present();
   }
 

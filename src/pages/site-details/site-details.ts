@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NavParams } from 'ionic-angular';
+import { Site } from '../../models/site';
 
 @Component({
   selector: 'page-site-details',
@@ -6,11 +8,13 @@ import { Component } from '@angular/core';
 })
 export class SiteDetailsPage {
 
-  constructor() {
-  }
+  site: Site;
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SiteDetailsPage');
-  }
+  constructor(private navParams: NavParams) {
 
+    if (this.navParams.data) {
+      this.site = this.navParams.data;
+    }
+    console.log(this);
+  }
 }

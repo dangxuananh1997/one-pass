@@ -2,63 +2,63 @@
   {
     "id": 1,
     "imageUrl": "assets/imgs/google.png",
-    "siteName": "https://www.google.com/",
+    "siteName": "Google",
     "username": "dangxuananh1997",
     "password": "123456"
   },
   {
     "id": 2,
     "imageUrl": "assets/imgs/facebook.png",
-    "siteName": "https://www.facebook.com/",
+    "siteName": "Facebook",
     "username": "dangxuananh1997",
     "password": "123456"
   },
   {
     "id": 3,
     "imageUrl": "assets/imgs/twitter.png",
-    "siteName": "https://www.twitter.com/",
+    "siteName": "Twitter",
     "username": "dangxuananh1997",
     "password": "123456"
   },
   {
     "id": 4,
     "imageUrl": "assets/imgs/gmail.png",
-    "siteName": "https://www.gmail.com/",
+    "siteName": "Gmail",
     "username": "dangxuananh1997",
     "password": "123456"
   },
   {
     "id": 5,
     "imageUrl": "assets/imgs/youtube.png",
-    "siteName": "https://www.youtube.com/",
+    "siteName": "Youtube",
     "username": "dangxuananh1997",
     "password": "123456"
   },
   {
     "id": 6,
     "imageUrl": "assets/imgs/instagram.png",
-    "siteName": "https://www.instagram.com/",
+    "siteName": "Instagram",
     "username": "dangxuananh1997",
     "password": "123456"
   },
   {
     "id": 7,
     "imageUrl": "assets/imgs/pinterest.jpg",
-    "siteName": "https://www.pinterest.com/",
+    "siteName": "Pinterest",
     "username": "dangxuananh1997",
     "password": "123456"
   },
   {
     "id": 8,
     "imageUrl": "assets/imgs/microsoft.jpg",
-    "siteName": "https://www.microsoft.com/",
+    "siteName": "Microsoft",
     "username": "dangxuananh1997",
     "password": "123456"
   },
   {
     "id": 9,
     "imageUrl": "assets/imgs/steam.png",
-    "siteName": "https://www.steamcommunity.com/",
+    "siteName": "Steam",
     "username": "dangxuananh1997",
     "password": "123456"
   }
