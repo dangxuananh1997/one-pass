@@ -12,10 +12,15 @@ import { ToolsPage } from '../pages/tools/tools';
 import { SettingsPage } from '../pages/settings/settings';
 import { ComponentsModule } from '../components/components.module';
 import { AddSitePage } from '../pages/add-site/add-site';
+import { GlobalVariableProvider } from '../providers/global-variable/global-variable';
 import { SiteProvider } from '../providers/site/site';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginPage } from '../pages/login/login';
 import { SiteDetailsPage } from '../pages/site-details/site-details';
+import { GeneratePasswordPage } from '../pages/generate-password/generate-password';
+import { ExportBackupPage } from '../pages/export-backup/export-backup';
+import { ConnectToPcPage } from '../pages/connect-to-pc/connect-to-pc';
+import { ConnectedPcPage } from '../pages/connected-pc/connected-pc';
 
 @NgModule({
   declarations: [
@@ -26,7 +31,11 @@ import { SiteDetailsPage } from '../pages/site-details/site-details';
     AddSitePage,
     TabsPage,
     LoginPage,
-    SiteDetailsPage
+    SiteDetailsPage,
+    GeneratePasswordPage,
+    ExportBackupPage,
+    ConnectToPcPage,
+    ConnectedPcPage
   ],
   imports: [
     BrowserModule,
@@ -43,13 +52,18 @@ import { SiteDetailsPage } from '../pages/site-details/site-details';
     AddSitePage,
     TabsPage,
     LoginPage,
-    SiteDetailsPage
+    SiteDetailsPage,
+    GeneratePasswordPage,
+    ExportBackupPage,
+    ConnectToPcPage,
+    ConnectedPcPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    SiteProvider
+    SiteProvider,
+    GlobalVariableProvider
   ]
 })
 export class AppModule {}

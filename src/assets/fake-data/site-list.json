@@ -3,6 +3,7 @@
     "id": 1,
     "imageUrl": "assets/imgs/google.png",
     "siteName": "Google",
+    "siteUrl": "",
     "username": "dangxuananh1997",
     "password": "123456"
   },
@@ -10,6 +11,7 @@
     "id": 2,
     "imageUrl": "assets/imgs/facebook.png",
     "siteName": "Facebook",
+    "siteUrl": "",
     "username": "dangxuananh1997",
     "password": "123456"
   },
@@ -17,6 +19,7 @@
     "id": 3,
     "imageUrl": "assets/imgs/twitter.png",
     "siteName": "Twitter",
+    "siteUrl": "",
     "username": "dangxuananh1997",
     "password": "123456"
   },
@@ -24,6 +27,7 @@
     "id": 4,
     "imageUrl": "assets/imgs/gmail.png",
     "siteName": "Gmail",
+    "siteUrl": "",
     "username": "dangxuananh1997",
     "password": "123456"
   },
@@ -31,6 +35,7 @@
     "id": 5,
     "imageUrl": "assets/imgs/youtube.png",
     "siteName": "Youtube",
+    "siteUrl": "",
     "username": "dangxuananh1997",
     "password": "123456"
   },
@@ -38,6 +43,7 @@
     "id": 6,
     "imageUrl": "assets/imgs/instagram.png",
     "siteName": "Instagram",
+    "siteUrl": "",
     "username": "dangxuananh1997",
     "password": "123456"
   },
@@ -45,6 +51,7 @@
     "id": 7,
     "imageUrl": "assets/imgs/pinterest.jpg",
     "siteName": "Pinterest",
+    "siteUrl": "",
     "username": "dangxuananh1997",
     "password": "123456"
   },
@@ -52,6 +59,7 @@
     "id": 8,
     "imageUrl": "assets/imgs/microsoft.jpg",
     "siteName": "Microsoft",
+    "siteUrl": "",
     "username": "dangxuananh1997",
     "password": "123456"
   },
@@ -59,6 +67,7 @@
     "id": 9,
     "imageUrl": "assets/imgs/steam.png",
     "siteName": "Steam",
+    "siteUrl": "",
     "username": "dangxuananh1997",
     "password": "123456"
   }

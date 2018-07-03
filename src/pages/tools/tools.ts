@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { GeneratePasswordPage } from '../generate-password/generate-password';
 
 @Component({
   selector: 'page-tools',
@@ -10,8 +11,8 @@ export class ToolsPage {
   constructor(public navCtrl: NavController) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ToolsPage');
+  openGeneratePassword() {
+    this.navCtrl.push(GeneratePasswordPage);
   }
 
 }

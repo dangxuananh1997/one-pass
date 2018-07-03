@@ -1,3 +1,9 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Site Details</ion-title>
+  </ion-navbar>
+</ion-header>
+
 <ion-content>
   <ion-row padding>
     <ion-col col-10>
@@ -8,23 +14,59 @@
         <ion-col col-9>
           <p class="site-name">{{site.siteName}}</p>
         </ion-col>
-        <ion-col col-12>
-          <p><b>Username:</b> {{site.username}}</p>
-          <p><b>Password:</b> {{site.password}}</p>
-        </ion-col>
       </ion-row>
     </ion-col>
-    <ion-col col-2 class="icons">
-      <button ion-button icon-only clear>
-        <ion-icon name="close"></ion-icon>
+    <ion-col col-2 class="icons" *ngIf="!isEditing">
+      <button ion-button icon-only clear (click)="deleteSite()">
+        <ion-icon name="ios-trash-outline"></ion-icon>
       </button>
-      <button ion-button icon-only clear>
-        <ion-icon name="create"></ion-icon>
+      <button ion-button icon-only clear (click)="enableEdit()">
+        <ion-icon name="ios-create-outline"></ion-icon>
       </button>
     </ion-col>
-    <button ion-button>test</button>
-    <button ion-button>test</button>
-    <button ion-button>test</button>
-    <button ion-button>test</button>
+    <ion-col col-2 class="icons" *ngIf="isEditing">
+      <button ion-button icon-only clear (click)="cancelEdit()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-col>
+    <ion-col col-12 *ngIf="!isEditing">
+      <p>
+        <b>Username: </b>
+        <span>{{site.username}}</span>
+      </p>
+      <p>
+        <b>Password: </b>
+        <span>{{isShowPassword ? site.password : '*********'}}</span>
+        <ion-icon name="ios-eye-outline" class="show-password" *ngIf="!isShowPassword" (click)="isShowPassword = !isShowPassword"></ion-icon>
+        <ion-icon name="ios-eye-off-outline" class="show-password" *ngIf="isShowPassword" (click)="isShowPassword = !isShowPassword"></ion-icon>
+      </p>
+    </ion-col>
+    <ion-col col-12 *ngIf="isEditing">
+      <ion-list>
+        <ion-item>
+          <ion-label color="primary">Site name</ion-label>
+          <ion-input [(ngModel)]="site.siteName"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label color="primary">URL</ion-label>
+          <ion-input value="{{site.siteUrl}}"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label color="primary">Username</ion-label>
+          <ion-input value="{{site.username}}"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label color="primary">Password</ion-label>
+          <ion-input type="password" value="************"></ion-input>
+        </ion-item>
+        <button ion-button outline>Save</button>
+      </ion-list>
+    </ion-col>
+    <ng-container *ngIf="!isEditing">
+      <button ion-button class="action-button">Copy username</button>
+      <button ion-button class="action-button">Copy password</button>
+      <button ion-button class="action-button">Open in browser</button>
+      <button ion-button class="action-button">Open in connected device</button>
+    </ng-container>
   </ion-row>
 </ion-content>
