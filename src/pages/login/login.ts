@@ -22,7 +22,7 @@ export class LoginPage {
     }).present();
     setTimeout(() => {
       this.navCtrl.setRoot(TabsPage);
-    }, 500)
+    }, 500);
   }
 
   register() {

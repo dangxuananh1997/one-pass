@@ -16,7 +16,7 @@
       <span>Generate Password</span>
       <ion-icon name="ios-arrow-forward" item-end></ion-icon>
     </button>
-    <button ion-item>
+    <button ion-item (click)="openConnectedToPC()">
       <ion-icon name="ios-laptop" item-start></ion-icon>
       <span>Connect to PC</span>
       <ion-icon name="ios-arrow-forward" item-end></ion-icon>
@@ -24,6 +24,11 @@
     <button ion-item>
       <ion-icon name="ios-cloud-download-outline" item-start></ion-icon>
       <span>Export Offline Backup</span>
+      <ion-icon name="ios-arrow-forward" item-end></ion-icon>
+    </button>
+    <button ion-item>
+      <ion-icon name="ios-download-outline" item-start></ion-icon>
+      <span>Import Offline Backup</span>
       <ion-icon name="ios-arrow-forward" item-end></ion-icon>
     </button>
   </ion-list>
