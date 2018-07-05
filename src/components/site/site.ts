@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Site } from '../../models/site';
-import { ActionSheetController, PopoverController, NavController, App } from 'ionic-angular';
+import { ActionSheetController, PopoverController, App } from 'ionic-angular';
 import { SiteDetailsPage } from '../../pages/site-details/site-details';
 import { GlobalVariableProvider } from '../../providers/global-variable/global-variable';
 

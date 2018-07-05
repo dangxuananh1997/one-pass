@@ -1,23 +1,34 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Add Site</ion-title>
+    <ion-title>Add Account</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  <div class="thumbnail">
+    <img src="{{site.imageUrl}}">
+    <p 
+      *ngIf="choseOther"
+      [ngStyle]="
+        {
+          'background-color': getRandomContrastColor(site.siteName, true),
+          'color': getRandomContrastColor(site.siteName, false)
+        }
+      ">{{site.siteName.toUpperCase().substr(0, 4)}}</p>
+  </div>
   <ion-list>
     <ion-item>
       <ion-label color="primary">Site name</ion-label>
-      <ion-select [(ngModel)]="site.siteName">
-        <ion-option value="f">
-          <img src="assets/imgs/facebook.png"/>
-        </ion-option>
-        <ion-option value="m">Male</ion-option>
+      <ion-select [(ngModel)]="selectedSiteId" (ionChange)="setSiteName()">
+        <ion-option
+          *ngFor="let baseSite of baseSiteList" 
+          value="{{baseSite.id}}">{{baseSite.siteName}}</ion-option>
+        <ion-option value="0">Other</ion-option>
       </ion-select>
     </ion-item>
-    <ion-item>
+    <ion-item *ngIf="this.selectedSiteId == 0">
       <ion-label color="primary">Site name</ion-label>
-      <ion-input [(ngModel)]="site.siteName"></ion-input>
+      <ion-input [(ngModel)]="site.siteName" (ionChange)="generateRandomSource(site.siteName)"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label color="primary">URL</ion-label>
@@ -29,7 +40,7 @@
     </ion-item>
     <ion-item>
       <ion-label color="primary">Password</ion-label>
-      <ion-input type="password" value="************"></ion-input>
+      <ion-input type="password" value="{{site.username}}"></ion-input>
     </ion-item>
     <button ion-button outline>Save</button>
   </ion-list>
