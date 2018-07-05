@@ -5,4 +5,13 @@ export class Site {
   siteUrl: string;
   username: string;
   password: string;
+
+  constructor() {
+    this.id = -1;
+    this.imageUrl = '';
+    this.siteName = '';
+    this.siteUrl = '';
+    this.username = '';
+    this.password = '';
+  }
 }

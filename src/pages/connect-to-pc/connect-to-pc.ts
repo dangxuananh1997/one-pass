@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { LoadingController, AlertController } from 'ionic-angular';
+import { Device, DEVICES } from '../../models/device';
+import { GlobalVariableProvider } from '../../providers/global-variable/global-variable';
 
 @Component({
   selector: 'page-connect-to-pc',
@@ -7,28 +9,14 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class ConnectToPcPage implements OnInit {
   isLoading: boolean = true;
-  selectedDevice: number = -1;
+  selectedDevice: Device;
+  deviceList = DEVICES;
 
-  deviceList = [
-    {
-      id: 0,
-      icon: 'ios-desktop-outline',
-      name: 'AnhDX'
-    },
-    {
-      id: 1,
-      icon: 'ios-laptop',
-      name: 'DuongPH'
-    },
-    {
-      id: 2,
-      icon: 'ios-laptop',
-      name: 'QuanNM'
-    }
-  ]
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(
+    public loadingCtrl: LoadingController,
+    public alertCtrl: AlertController,
+    public globalVariables: GlobalVariableProvider
+  ) { }
 
   ngOnInit() {
     setTimeout(() => {
@@ -36,8 +24,24 @@ export class ConnectToPcPage implements OnInit {
     }, 1500);
   }
 
-  selectDevice(id: number) {
-    this.selectedDevice = id;
+  selectDevice(device: Device) {
+    this.selectedDevice = device;
+  }
+
+  connectToDevice() {
+    this.loadingCtrl.create({
+      content: "Please wait...",
+      duration: 500
+    }).present();
+    
+    this.globalVariables.isConnectedToDevice = true;
+
+    setTimeout(() => {
+      this.alertCtrl.create({
+        title: `Connected to ${this.selectedDevice.name}`,
+        buttons: ['OK']
+      }).present();
+    }, 500);
   }
 
 }

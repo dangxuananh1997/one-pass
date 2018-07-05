@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, ToastController, AlertController } from 'ionic-angular';
+import { ToastController, AlertController, App } from 'ionic-angular';
 import { Site } from '../../models/site';
 import { AddSitePage } from '../add-site/add-site';
 import { SiteProvider } from '../../providers/site/site';
@@ -10,10 +10,12 @@ import { SiteProvider } from '../../providers/site/site';
 })
 export class HomePage implements OnInit {
 
-  constructor(public navCtrl: NavController, 
-              public toastCtrl: ToastController, 
-              public alertCtrl: AlertController, 
-              public siteProvider: SiteProvider) { }
+  constructor(
+    public toastCtrl: ToastController,
+    public alertCtrl: AlertController,
+    public siteProvider: SiteProvider,
+    public app: App
+  ) { }
 
   siteList: Site[];
 
@@ -22,7 +24,7 @@ export class HomePage implements OnInit {
   }
   
   addSite(): void {
-    this.navCtrl.push(AddSitePage);
+    this.app.getRootNav().push(AddSitePage);
   }
 
   doRefresh(refresher): void {

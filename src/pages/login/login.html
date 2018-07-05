@@ -8,22 +8,12 @@
   </div>
   
   <div class="login-form">
-    <!-- <ion-list inset>
-      <ion-item>
-        <ion-input type="text" placeholder="Username"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input type="password" placeholder="Password"></ion-input>
-      </ion-item>
-      <button ion-button full>Login</button>
-    </ion-list> -->
-    
     <ion-row>
       <ion-col col-12>
-        <input type="text" placeholder="Username">
+        <input type="text" placeholder="Username" [(ngModel)]="username" value="">
       </ion-col>
       <ion-col col-12>
-        <input type="password" placeholder="Password">
+        <input type="password" placeholder="Password" [(ngModel)]="password">
         <label class="forget-password">Forget Password?</label>
       </ion-col>
     </ion-row>

@@ -4,8 +4,9 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class GlobalVariableProvider {
 
-  constructor(public http: HttpClient) {
-    console.log('Hello GlobalVariableProvider Provider');
-  }
+  public isLogin: boolean = false;
+  public isConnectedToDevice: boolean = false;
+
+  constructor(public http: HttpClient) { }
 
 }

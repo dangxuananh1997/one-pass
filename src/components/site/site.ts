@@ -1,7 +1,8 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Site } from '../../models/site';
-import { ActionSheetController, PopoverController, NavController } from 'ionic-angular';
+import { ActionSheetController, PopoverController, NavController, App } from 'ionic-angular';
 import { SiteDetailsPage } from '../../pages/site-details/site-details';
+import { GlobalVariableProvider } from '../../providers/global-variable/global-variable';
 
 @Component({
   selector: 'site',
@@ -13,8 +14,12 @@ export class SiteComponent implements OnInit {
 
   showPassword: boolean = false;
 
-  constructor(public navCtrl: NavController, public actionSheetCtrl: ActionSheetController, public popoverCtrl: PopoverController) {
-  }
+  constructor(
+    public app: App,
+    public actionSheetCtrl: ActionSheetController,
+    public popoverCtrl: PopoverController,
+    public globalVariable: GlobalVariableProvider
+  ) { }
 
   ngOnInit() {
   }
@@ -52,7 +57,7 @@ export class SiteComponent implements OnInit {
           text: 'Open in connected device',
           icon: 'ios-laptop',
           handler: () => { },
-          cssClass: false ? 'hidden' : ''
+          cssClass: !this.globalVariable.isConnectedToDevice ? 'hidden' : ''
         },
         {
           text: 'Edit',
@@ -80,7 +85,7 @@ export class SiteComponent implements OnInit {
   async showDetails(site: Site, isEdit: boolean) {
     // const popover = this.popoverCtrl.create(SiteDetailsPage, site);
     // popover.present();
-    this.navCtrl.push(SiteDetailsPage, { site, isEdit });
+    this.app.getRootNav().push(SiteDetailsPage, { site, isEdit });
   }
 
 }

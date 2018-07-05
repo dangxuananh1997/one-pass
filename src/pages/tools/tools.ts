@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { App } from 'ionic-angular';
 import { GeneratePasswordPage } from '../generate-password/generate-password';
 import { ConnectToPcPage } from '../connect-to-pc/connect-to-pc';
 
@@ -9,15 +9,15 @@ import { ConnectToPcPage } from '../connect-to-pc/connect-to-pc';
 })
 export class ToolsPage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public app: App) {
   }
 
   openGeneratePassword() {
-    this.navCtrl.push(GeneratePasswordPage);
+    this.app.getRootNav().push(GeneratePasswordPage);
   }
 
   openConnectedToPC() {
-    this.navCtrl.push(ConnectToPcPage);
+    this.app.getRootNav().push(ConnectToPcPage);
   }
 
 }

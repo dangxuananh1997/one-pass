@@ -21,6 +21,7 @@ import { GeneratePasswordPage } from '../pages/generate-password/generate-passwo
 import { ExportBackupPage } from '../pages/export-backup/export-backup';
 import { ConnectToPcPage } from '../pages/connect-to-pc/connect-to-pc';
 import { ConnectedPcPage } from '../pages/connected-pc/connected-pc';
+import { KeychainTouchId } from '@ionic-native/keychain-touch-id';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { ConnectedPcPage } from '../pages/connected-pc/connected-pc';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     SiteProvider,
-    GlobalVariableProvider
+    GlobalVariableProvider,
+    KeychainTouchId
   ]
 })
 export class AppModule {}

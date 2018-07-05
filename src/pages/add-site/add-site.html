@@ -5,4 +5,32 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label color="primary">Site name</ion-label>
+      <ion-select [(ngModel)]="site.siteName">
+        <ion-option value="f">
+          <img src="assets/imgs/facebook.png"/>
+        </ion-option>
+        <ion-option value="m">Male</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary">Site name</ion-label>
+      <ion-input [(ngModel)]="site.siteName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary">URL</ion-label>
+      <ion-input value="{{site.siteUrl}}"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary">Username</ion-label>
+      <ion-input value="{{site.username}}"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary">Password</ion-label>
+      <ion-input type="password" value="************"></ion-input>
+    </ion-item>
+    <button ion-button outline>Save</button>
+  </ion-list>
 </ion-content>

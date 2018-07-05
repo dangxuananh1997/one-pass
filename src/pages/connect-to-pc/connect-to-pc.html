@@ -11,12 +11,15 @@
   <div class="devices-container">
     <ion-spinner item-start name="dots" *ngIf="isLoading"></ion-spinner>
     <ion-list *ngIf="!isLoading">
-      <button ion-item *ngFor="let device of deviceList" (click)="selectDevice(device.id)" [ngClass]="{ 'active': selectedDevice == device.id }">
+      <button ion-item *ngFor="let device of deviceList" (click)="selectDevice(device)" [ngClass]="{ 'active': selectedDevice == device }">
         <ion-icon name="{{device.icon}}" item-start></ion-icon>
         <h2>{{device.name}}</h2>
       </button>
       
     </ion-list>
   </div>
-  <button ion-button class="connect-button" *ngIf="selectedDevice != -1">Connect</button>
+  <button ion-button 
+    class="connect-button" 
+    *ngIf="selectedDevice != null"
+    (click)="connectToDevice()">Connect to {{selectedDevice.name}}</button>
 </ion-content>
