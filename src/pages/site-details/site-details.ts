@@ -1,34 +1,38 @@
-import { Component } from '@angular/core';
-import { NavParams, AlertController, LoadingController } from 'ionic-angular';
+import { Component, OnInit } from '@angular/core';
+import { NavParams, AlertController, LoadingController, NavController } from 'ionic-angular';
 import { Site } from '../../models/site';
+import { SiteProvider } from '../../providers/site/site';
+import { GlobalVariableProvider } from '../../providers/global-variable/global-variable';
 
 @Component({
   selector: 'page-site-details',
   templateUrl: 'site-details.html',
 })
-export class SiteDetailsPage {
+export class SiteDetailsPage implements OnInit {
   site: Site;
   tmpSite: Site;
   isEditing: boolean = false;
   isShowPassword: boolean = false;
+  isConnectToDevice: boolean = false;
 
-  constructor(private navParams: NavParams, private alertCtrl: AlertController, public loadingCtrl: LoadingController) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public alertCtrl: AlertController,
+    public loadingCtrl: LoadingController,
+    public siteService: SiteProvider,
+    public globalVariables: GlobalVariableProvider
+  ) { }
 
+  ngOnInit() {
     if (this.navParams.data) {
       this.site = this.navParams.data.site;
       this.isEditing = this.navParams.data.isEdit;
     }
 
-    this.site = {
-      id: 1,
-      imageUrl: 'assets/imgs/google.png',
-      password: 'asdfasdfsdjhfjksdhfj',
-      siteUrl: '',
-      username: 'adfasdfadf',
-      siteName: 'Google'
-    };
-
     this.tmpSite = { ...this.site };
+
+    this.isConnectToDevice = this.globalVariables.isConnectedToDevice;
   }
 
   enableEdit() {
@@ -52,6 +56,11 @@ export class SiteDetailsPage {
     }, 300);
   }
 
+  saveEditSite() {
+    this.siteService.updateSite(this.site);
+    this.navCtrl.pop();
+  }
+
   deleteSite() {
     let alert = this.alertCtrl.create({
       title: 'Confirm delete',
@@ -60,12 +69,13 @@ export class SiteDetailsPage {
         {
           text: 'Cancel',
           role: 'cancel',
-          handler: () => {
-          }
+          handler: () => { }
         },
         {
           text: 'Delete',
           handler: () => {
+            this.siteService.deleteSite(this.site.id);
+            this.navCtrl.pop();
           }
         }
       ]

@@ -33,7 +33,7 @@ export class SiteComponent implements OnInit {
           cssClass: 'tests',
           handler: () => {
             actionSheet.dismiss().then(() => {
-              this.showDetails(site, false);
+              this.app.getRootNav().push(SiteDetailsPage, { site, isEdit: false });
             });
             return false;
           }
@@ -41,7 +41,7 @@ export class SiteComponent implements OnInit {
         {
           text: 'Copy username',
           icon: 'ios-copy-outline',
-          handler: () => { alert(); }
+          handler: () => { }
         },
         {
           text: 'Copy password',
@@ -64,7 +64,7 @@ export class SiteComponent implements OnInit {
           icon: 'ios-create-outline',
           handler: () => {
             actionSheet.dismiss().then(() => {
-              this.showDetails(site, true);
+              this.app.getRootNav().push(SiteDetailsPage, { site, isEdit: true });
             });
             return false;
           }
@@ -74,18 +74,14 @@ export class SiteComponent implements OnInit {
           cssClass: 'danger',
           icon: 'ios-trash-outline',
           handler: () => {
-            this.deleteSite.emit(site.id);
+            actionSheet.dismiss().then(() => {
+              this.deleteSite.emit(site.id);
+            });
+            return false;
           }
         }
       ]
     });
     actionSheet.present();
   }
-
-  async showDetails(site: Site, isEdit: boolean) {
-    // const popover = this.popoverCtrl.create(SiteDetailsPage, site);
-    // popover.present();
-    this.app.getRootNav().push(SiteDetailsPage, { site, isEdit });
-  }
-
 }

@@ -21,6 +21,9 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
     this.siteProvider.getSite().then(res => this.siteList = res);
+    this.siteProvider.refreshSiteList.subscribe(() => {
+      this.siteList = this.siteProvider.siteList;
+    });
   }
   
   addSite(): void {
@@ -36,26 +39,16 @@ export class HomePage implements OnInit {
 
   deleteSite(id: number): void {
     this.alertCtrl.create({
-      title: 'Delete site?',
-      message: 'Delete username and password from this site?',
+      title: 'Confirm delete',
+      message: 'Do you want to delete this site?',
       buttons: [
         {
-          text: 'Delete',
-          cssClass: 'danger',
-          handler: () => {
-            var index = this.siteList.findIndex(site => site.id == id);
-            this.siteList.splice(index, 1);
-            this.toastCtrl.create({
-              message: 'Delete successfull!',
-              duration: 1500,
-              position: 'bottom'
-            }).present();
-          }
+          text: 'Cancel',
+          handler: () => { }
         },
         {
-          text: 'Cancel',
-          handler: () => {
-          }
+          text: 'Delete',
+          handler: () => { this.siteProvider.deleteSite(id); }
         }
       ]
     }).present();

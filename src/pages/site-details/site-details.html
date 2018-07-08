@@ -59,14 +59,14 @@
           <ion-label color="primary">Password</ion-label>
           <ion-input type="password" value="************"></ion-input>
         </ion-item>
-        <button ion-button outline>Save</button>
+        <button ion-button outline (click)="saveEditSite()">Save</button>
       </ion-list>
     </ion-col>
     <ng-container *ngIf="!isEditing">
       <button ion-button class="action-button">Copy username</button>
       <button ion-button class="action-button">Copy password</button>
       <button ion-button class="action-button">Open in browser</button>
-      <button ion-button class="action-button">Open in connected device</button>
+      <button ion-button class="action-button" *ngIf="isConnectToDevice">Open in connected device</button>
     </ng-container>
   </ion-row>
 </ion-content>

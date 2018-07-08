@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Site } from '../../models/site';
 import { BASESITES, BaseSite } from '../../models/base-site';
+import { SiteProvider } from '../../providers/site/site';
 
 @Component({
   selector: 'page-add-site',
@@ -16,8 +17,10 @@ export class AddSitePage {
   randomG: number;
   randomB: number;
 
-  constructor(public navCtrl: NavController) {
-  }
+  constructor(
+    public navCtrl: NavController,
+    public siteService: SiteProvider
+  ) { }
 
   ionViewDidLoad() {
     this.generateRandomSource('');
@@ -69,6 +72,10 @@ export class AddSitePage {
     } else {
       return `rgb(${sum - r}, ${sum - g}, ${sum - b})`;
     }
+  }
+
+  addSite() {
+    this.siteService.addSite(this.site);
   }
 
 }
