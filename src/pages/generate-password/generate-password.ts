@@ -13,7 +13,7 @@ export class GeneratePasswordPage implements OnInit {
   constructor(public navCtrl: NavController, public navParams: NavParams) { }
 
   ngOnInit() {
-    this.generatePassword();
+    // this.generatePassword();
   }
 
   generatePassword() {

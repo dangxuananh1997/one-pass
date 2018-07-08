@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, LoadingController, AlertController } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
 import { GlobalVariableProvider } from '../../providers/global-variable/global-variable';
-import { KeychainTouchId } from '@ionic-native/keychain-touch-id';
+// import { KeychainTouchId } from '@ionic-native/keychain-touch-id';
 
 @Component({
   selector: 'page-login',
@@ -19,7 +19,7 @@ export class LoginPage {
     public loadingCtrl: LoadingController,
     public alertCtrl: AlertController,
     public globalVariable: GlobalVariableProvider,
-    private keychainTouchId: KeychainTouchId
+    // private keychainTouchId: KeychainTouchId
   ) { }
 
   ionViewDidLoad() {
