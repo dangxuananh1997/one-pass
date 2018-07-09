@@ -32,15 +32,15 @@
     </ion-item>
     <ion-item>
       <ion-label color="primary">URL</ion-label>
-      <ion-input value="{{site.siteUrl}}"></ion-input>
+      <ion-input [(ngModel)]="site.siteUrl"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label color="primary">Username</ion-label>
-      <ion-input value="{{site.username}}"></ion-input>
+      <ion-input [(ngModel)]="site.username"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label color="primary">Password</ion-label>
-      <ion-input type="password" value="{{site.username}}"></ion-input>
+      <ion-input type="password" [(ngModel)]="site.password"></ion-input>
     </ion-item>
     <button ion-button outline (click)="addSite()">Save</button>
   </ion-list>

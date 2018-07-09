@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ToastController, AlertController, App } from 'ionic-angular';
+import { AlertController, App } from 'ionic-angular';
 import { Site } from '../../models/site';
 import { AddSitePage } from '../add-site/add-site';
 import { SiteProvider } from '../../providers/site/site';
@@ -11,7 +11,6 @@ import { SiteProvider } from '../../providers/site/site';
 export class HomePage implements OnInit {
 
   constructor(
-    public toastCtrl: ToastController,
     public alertCtrl: AlertController,
     public siteProvider: SiteProvider,
     public app: App

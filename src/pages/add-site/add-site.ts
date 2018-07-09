@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ToastController } from 'ionic-angular';
 import { Site } from '../../models/site';
 import { BASESITES, BaseSite } from '../../models/base-site';
 import { SiteProvider } from '../../providers/site/site';
@@ -12,14 +12,15 @@ export class AddSitePage {
   site: Site = new Site();
   baseSiteList: BaseSite[] = BASESITES;
   choseOther: boolean = false;
-  selectedSiteId: number = 0;
+  selectedSiteId: number = 1;
   randomR: number;
   randomG: number;
   randomB: number;
 
   constructor(
     public navCtrl: NavController,
-    public siteService: SiteProvider
+    public siteService: SiteProvider,
+    public toastCtrl: ToastController
   ) { }
 
   ionViewDidLoad() {
@@ -76,6 +77,12 @@ export class AddSitePage {
 
   addSite() {
     this.siteService.addSite(this.site);
+    this.navCtrl.pop();
+    this.toastCtrl.create({
+      message: 'Saved!',
+      duration: 1500,
+      position: 'bottom'
+    }).present();
   }
 
 }

@@ -10,13 +10,13 @@ export const BASESITES: BaseSite[] = [
     id: 1,
     imageUrl: 'assets/imgs/google.png',
     siteName: 'Google',
-    siteUrl: 'https://google.com'
+    siteUrl: 'https://www.google.com'
   },
   {
     id: 2,
     imageUrl: 'assets/imgs/facebook.png',
     siteName: 'Facebook',
-    siteUrl: 'https://facebook.com'
+    siteUrl: 'https://www.facebook.com'
   },
   {
     id: 3,
@@ -34,6 +34,6 @@ export const BASESITES: BaseSite[] = [
     id: 5,
     imageUrl: 'assets/imgs/youtube.png',
     siteName: 'Youtube',
-    siteUrl: 'https://youtube.com'
+    siteUrl: 'https://www.youtube.com'
   }
 ]

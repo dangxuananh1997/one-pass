@@ -63,8 +63,8 @@
       </ion-list>
     </ion-col>
     <ng-container *ngIf="!isEditing">
-      <button ion-button class="action-button">Copy username</button>
-      <button ion-button class="action-button">Copy password</button>
+      <button ion-button class="action-button" (click)="copyToClipboard(site.username)">Copy username</button>
+      <button ion-button class="action-button" (click)="copyToClipboard(site.password)">Copy password</button>
       <button ion-button class="action-button">Open in browser</button>
       <button ion-button class="action-button" *ngIf="isConnectToDevice">Open in connected device</button>
     </ng-container>

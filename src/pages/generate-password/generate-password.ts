@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ToastController } from 'ionic-angular';
+import { Clipboard } from '@ionic-native/clipboard';
 
 @Component({
   selector: 'page-generate-password',
@@ -10,7 +11,12 @@ export class GeneratePasswordPage implements OnInit {
   characterCount: number = 6;
   password: string = '';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) { }
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public clipboard: Clipboard,
+    public toastCtrl: ToastController
+  ) { }
 
   ngOnInit() {
     // this.generatePassword();
@@ -23,4 +29,12 @@ export class GeneratePasswordPage implements OnInit {
     }
   }
 
+  copyToClipboard(s: string) {
+    this.clipboard.copy(s);
+    this.toastCtrl.create({
+      message: 'Copied to clipboard!',
+      duration: 1500,
+      position: 'bottom'
+    }).present();
+  }
 }

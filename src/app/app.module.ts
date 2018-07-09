@@ -22,6 +22,8 @@ import { ExportBackupPage } from '../pages/export-backup/export-backup';
 import { ConnectToPcPage } from '../pages/connect-to-pc/connect-to-pc';
 import { ConnectedPcPage } from '../pages/connected-pc/connected-pc';
 import { FingerprintAIO } from '@ionic-native/fingerprint-aio';
+import { Clipboard } from '@ionic-native/clipboard';
+
 
 @NgModule({
   declarations: [
@@ -65,7 +67,8 @@ import { FingerprintAIO } from '@ionic-native/fingerprint-aio';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     SiteProvider,
     GlobalVariableProvider,
-    FingerprintAIO
+    FingerprintAIO,
+    Clipboard
   ]
 })
 export class AppModule {}

@@ -1,8 +1,9 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Site } from '../../models/site';
-import { ActionSheetController, PopoverController, App } from 'ionic-angular';
+import { ActionSheetController, PopoverController, App, ToastController } from 'ionic-angular';
 import { SiteDetailsPage } from '../../pages/site-details/site-details';
 import { GlobalVariableProvider } from '../../providers/global-variable/global-variable';
+import { Clipboard } from '@ionic-native/clipboard';
 
 @Component({
   selector: 'site',
@@ -18,7 +19,9 @@ export class SiteComponent implements OnInit {
     public app: App,
     public actionSheetCtrl: ActionSheetController,
     public popoverCtrl: PopoverController,
-    public globalVariable: GlobalVariableProvider
+    public globalVariable: GlobalVariableProvider,
+    public clipboard: Clipboard,
+    public toastCtrl: ToastController
   ) { }
 
   ngOnInit() {
@@ -41,12 +44,12 @@ export class SiteComponent implements OnInit {
         {
           text: 'Copy username',
           icon: 'ios-copy-outline',
-          handler: () => { }
+          handler: () => { this.copyToClipboard(site.username); }
         },
         {
           text: 'Copy password',
           icon: 'ios-copy',
-          handler: () => { }
+          handler: () => { this.copyToClipboard(site.password); }
         },
         {
           text: 'Open in browser',
@@ -83,5 +86,14 @@ export class SiteComponent implements OnInit {
       ]
     });
     actionSheet.present();
+  }
+
+  copyToClipboard(s: string) {
+    this.clipboard.copy(s);
+    this.toastCtrl.create({
+      message: 'Copied to clipboard!',
+      duration: 1500,
+      position: 'bottom'
+    }).present();
   }
 }
