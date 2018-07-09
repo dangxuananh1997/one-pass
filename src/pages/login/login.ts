@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, LoadingController, AlertController } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
 import { GlobalVariableProvider } from '../../providers/global-variable/global-variable';
-// import { KeychainTouchId } from '@ionic-native/keychain-touch-id';
+import { FingerprintAIO } from '@ionic-native/fingerprint-aio';
 
 @Component({
   selector: 'page-login',
@@ -19,32 +19,18 @@ export class LoginPage {
     public loadingCtrl: LoadingController,
     public alertCtrl: AlertController,
     public globalVariable: GlobalVariableProvider,
-    // private keychainTouchId: KeychainTouchId
+    private faio: FingerprintAIO
   ) { }
 
   ionViewDidLoad() {
-    // alert('check touchid');
-    // this.keychainTouchId.isAvailable()
-    //   .then((res: any) => {
-    //     this.hasTouchId = true;
-    //     alert('has touchid')
-    //   })
-    //   .catch((error: any) => console.error(error));
     if (this.globalVariable.isLogin) {
-      this.isLogin = true;
       this.username = 'johndoe';
-      // if (this.hasTouchId) {
-      //   alert('asd');
-      //   this.keychainTouchId.verify(this.username, 'Use your fingerprint')
-      //     .then(
-      //       (password) => {
-      //         this.password == password;
-      //         this.login();
-      //       }
-      //     )
-      //     .catch(() => {});
-      // }
     }
+    this.faio.isAvailable().then(
+     () => {
+       this.hasTouchId = true;
+     }
+    ).catch(() => {});
   }
 
   login() {
@@ -54,10 +40,9 @@ export class LoginPage {
     }).present();
 
     setTimeout(() => {
-      if (this.username == 'johndoe' && this.password == '123456') {
+      if (this.username == 'johndoe' && this.password == '123456' || this.isLogin) {
         this.navCtrl.setRoot(TabsPage);
         this.globalVariable.isLogin = true;
-        // this.keychainTouchId.save(this.username, this.password);
       } else {
         this.alertCtrl.create({
           title: 'Invalid Username or Password',
@@ -67,8 +52,26 @@ export class LoginPage {
     }, 500);
   }
 
-  register() {
+  loginWithFingerprint() {
+    this.faio.show(
+      {
+        clientId: 'Fingerprint-Demo',
+        clientSecret: 'password',
+        disableBackup: true
+      }
+    ).then(
+      () => {
+        this.isLogin = true;
+        this.login();
+      },
+      () => {
 
+      }
+    );
+  }
+
+  register() {
+    
   }
 
 }

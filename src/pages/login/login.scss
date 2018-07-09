@@ -45,6 +45,14 @@ page-login {
         }
       }
     }
+    ion-row.action-button {
+      ion-col[col-10] {
+        padding-right: 10px !important;
+      }
+      ion-col {
+        margin-bottom: 0;
+      }
+    }
     button.login-button {
       background: #232526 !important;
       color: white;

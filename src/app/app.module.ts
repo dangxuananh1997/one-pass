@@ -21,7 +21,7 @@ import { GeneratePasswordPage } from '../pages/generate-password/generate-passwo
 import { ExportBackupPage } from '../pages/export-backup/export-backup';
 import { ConnectToPcPage } from '../pages/connect-to-pc/connect-to-pc';
 import { ConnectedPcPage } from '../pages/connected-pc/connected-pc';
-import { KeychainTouchId } from '@ionic-native/keychain-touch-id';
+import { FingerprintAIO } from '@ionic-native/fingerprint-aio';
 
 @NgModule({
   declarations: [
@@ -65,7 +65,7 @@ import { KeychainTouchId } from '@ionic-native/keychain-touch-id';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     SiteProvider,
     GlobalVariableProvider,
-    KeychainTouchId
+    FingerprintAIO
   ]
 })
 export class AppModule {}

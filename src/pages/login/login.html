@@ -17,7 +17,21 @@
         <label class="forget-password">Forget Password?</label>
       </ion-col>
     </ion-row>
-    <button ion-button full color="primaryText" (click)="login()" class="login-button">Login</button>
-    <button ion-button full color="lightText" (click)="register()" class="register-button">Register</button>
+    <ion-row class="action-button" *ngIf="hasTouchId">
+      <ion-col col-10>
+        <button ion-button full color="primaryText" (click)="login()" class="login-button">Login</button>
+      </ion-col>
+      <ion-col col-2>
+        <button ion-button full color="primaryText" (click)="loginWithFingerprint()" class="login-button">
+          <ion-icon name="ios-finger-print"></ion-icon>
+        </button>
+      </ion-col>
+      <button ion-button full color="lightText" (click)="register()" class="register-button">Register</button>
+    </ion-row>
+
+    <ng-container *ngIf="!hasTouchId">
+      <button ion-button full color="primaryText" (click)="login()" class="login-button">Login</button>
+      <button ion-button full color="lightText" (click)="register()" class="register-button">Register</button>
+    </ng-container>
   </div>
 </ion-content>
