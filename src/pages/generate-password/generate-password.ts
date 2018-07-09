@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { Clipboard } from '@ionic-native/clipboard';
+import { GlobalVariableProvider } from '../../providers/global-variable/global-variable';
 
 @Component({
   selector: 'page-generate-password',
@@ -10,16 +11,19 @@ export class GeneratePasswordPage implements OnInit {
 
   characterCount: number = 6;
   password: string = '';
+  isConnectedToDevice: boolean = false;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public clipboard: Clipboard,
-    public toastCtrl: ToastController
+    public toastCtrl: ToastController,
+    public globalVariables: GlobalVariableProvider
   ) { }
 
   ngOnInit() {
     // this.generatePassword();
+    this.isConnectedToDevice = this.globalVariables.isConnectedToDevice;
   }
 
   generatePassword() {

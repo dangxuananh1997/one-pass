@@ -23,7 +23,7 @@ import { ConnectToPcPage } from '../pages/connect-to-pc/connect-to-pc';
 import { ConnectedPcPage } from '../pages/connected-pc/connected-pc';
 import { FingerprintAIO } from '@ionic-native/fingerprint-aio';
 import { Clipboard } from '@ionic-native/clipboard';
-
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 @NgModule({
   declarations: [
@@ -68,7 +68,8 @@ import { Clipboard } from '@ionic-native/clipboard';
     SiteProvider,
     GlobalVariableProvider,
     FingerprintAIO,
-    Clipboard
+    Clipboard,
+    InAppBrowser
   ]
 })
 export class AppModule {}
