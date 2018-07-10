@@ -12,6 +12,17 @@ page-site-details {
     p {
       vertical-align: bottom;
     }
+    ion-col {
+      p.site-alt {
+        margin: 0;
+        font-weight: bold;
+        text-align: center;
+        font-size: 1.4em;
+        line-height: 47px;
+        border-radius: 5px;
+        margin-top: -15px;
+      }
+    }
     ion-list {
       ion-item {
         padding-left: 0 !important;

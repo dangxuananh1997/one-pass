@@ -31,7 +31,6 @@ export class SiteProvider {
     site.id = this.siteList[this.siteList.length - 1].id + 1;
     this.siteList.push(site);
     this.refreshSiteList.emit();
-    console.log(this.siteList);
   }
 
   updateSite(site: Site) {

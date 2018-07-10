@@ -10,6 +10,14 @@
       <ion-row>
         <ion-col col-3>
           <img src="{{site.imageUrl}}" alt="">
+          <p *ngIf="site.backgroundColor"
+            class="site-alt"
+            [ngStyle]="
+              {
+                'background': site.backgroundColor,
+                'color': site.color
+              }
+            ">{{site.siteName.toUpperCase().substr(0, 4)}}</p>
         </ion-col>
         <ion-col col-9>
           <p class="site-name">{{site.siteName}}</p>
@@ -65,7 +73,7 @@
     <ng-container *ngIf="!isEditing">
       <button ion-button class="action-button" (click)="copyToClipboard(site.username)">Copy username</button>
       <button ion-button class="action-button" (click)="copyToClipboard(site.password)">Copy password</button>
-      <button ion-button class="action-button">Open in browser</button>
+      <button ion-button class="action-button" (click)="openSite()">Open in browser</button>
       <button ion-button class="action-button" *ngIf="isConnectToDevice">Open in connected device</button>
     </ng-container>
   </ion-row>

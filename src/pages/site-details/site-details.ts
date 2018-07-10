@@ -4,6 +4,7 @@ import { Site } from '../../models/site';
 import { SiteProvider } from '../../providers/site/site';
 import { GlobalVariableProvider } from '../../providers/global-variable/global-variable';
 import { Clipboard } from '@ionic-native/clipboard';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 @Component({
   selector: 'page-site-details',
@@ -24,7 +25,8 @@ export class SiteDetailsPage implements OnInit {
     public siteService: SiteProvider,
     public globalVariables: GlobalVariableProvider,
     public clipboard: Clipboard,
-    public toastCtrl: ToastController
+    public toastCtrl: ToastController,
+    private iab: InAppBrowser
   ) { }
 
   ngOnInit() {
@@ -93,5 +95,42 @@ export class SiteDetailsPage implements OnInit {
       duration: 1500,
       position: 'bottom'
     }).present();
+  }
+
+  openSite() {
+    const browser = this.iab.create('https://www.facebook.com/', '_self', 'clearcache=yes');
+
+    let code = `
+      var username = document.getElementById('m_login_email');
+      var password = document.getElementById('m_login_password');
+      var strUsername = '0983146993';
+      var strPassword = '272548476';
+      if (document.getElementById('m_login_email')) {
+
+        var i;
+        for (i = 0; i < strUsername.length; i++) {
+          setTimeout(function(){
+            username.value = strUsername.substring(0, i);
+          }, 100);
+        }
+        for (i = 0; i < strPassword.length; i++) {
+          setTimeout(function(){
+            password.value = strPassword.substring(0, i);
+          }, 100);
+        }
+        document.getElementById("m_login_password").focus();
+        var option = {
+          which: 13,
+          keyCode: 13
+        }
+        var event = new KeyboardEvent('keypress', option);
+      }
+    `;
+
+    browser.on('loadstop').subscribe(event => {
+      browser.executeScript({ code });
+    });
+
+    // browser.close();
   }
 }
