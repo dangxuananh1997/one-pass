@@ -5,7 +5,7 @@ site {
   div.image {
     position: relative;
     height: 55px;
-    padding: 10px;
+    // padding: 10px;
     border-radius: 5px;
     // border: 1px solid grey;
     overflow: hidden;
@@ -15,6 +15,15 @@ site {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+    }
+    p {
+      height: 100%;
+      margin: 0;
+      border-radius: 5px;
+      font-weight: bold;
+      text-align: center;
+      line-height: 55px;
+      font-size: 1.6em;
     }
   }
   h3.site {

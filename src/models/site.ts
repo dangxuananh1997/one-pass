@@ -5,6 +5,8 @@ export class Site {
   siteUrl: string;
   username: string;
   password: string;
+  backgroundColor: string;
+  color: string;
 
   constructor() {
     this.id = -1;
@@ -13,5 +15,7 @@ export class Site {
     this.siteUrl = '';
     this.username = '';
     this.password = '';
+    this.backgroundColor = '';
+    this.color = '';
   }
 }

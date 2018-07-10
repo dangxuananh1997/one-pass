@@ -3,6 +3,14 @@
     <ion-col col-3 (click)="showSiteOptions()">
       <div class="image">
         <img src="{{site.imageUrl}}">
+        <p *ngIf="site.backgroundColor"
+          [ngStyle]="
+            {
+              'background': site.backgroundColor,
+              'color': site.color
+            }
+          "
+          >{{site.siteName.toUpperCase().substr(0, 4)}}</p>
       </div>
     </ion-col>
     <ion-col col-7 (click)="showSiteOptions(site)">

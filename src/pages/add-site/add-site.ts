@@ -76,6 +76,10 @@ export class AddSitePage {
   }
 
   addSite() {
+    if (this.site.imageUrl == '') {
+      this.site.backgroundColor = this.getRandomContrastColor(this.site.siteName, true);
+      this.site.color = this.getRandomContrastColor(this.site.siteName, false);
+    }
     this.siteService.addSite(this.site);
     this.navCtrl.pop();
     this.toastCtrl.create({
