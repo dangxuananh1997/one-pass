@@ -24,6 +24,7 @@ import { ConnectedPcPage } from '../pages/connected-pc/connected-pc';
 import { FingerprintAIO } from '@ionic-native/fingerprint-aio';
 import { Clipboard } from '@ionic-native/clipboard';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { DesktopProvider } from '../providers/desktop/desktop';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     SiteProvider,
     GlobalVariableProvider,
+    DesktopProvider,
     FingerprintAIO,
     Clipboard,
     InAppBrowser

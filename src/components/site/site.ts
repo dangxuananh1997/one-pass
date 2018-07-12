@@ -5,6 +5,7 @@ import { SiteDetailsPage } from '../../pages/site-details/site-details';
 import { GlobalVariableProvider } from '../../providers/global-variable/global-variable';
 import { Clipboard } from '@ionic-native/clipboard';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { DesktopProvider } from '../../providers/desktop/desktop';
 
 @Component({
   selector: 'site',
@@ -23,7 +24,8 @@ export class SiteComponent implements OnInit {
     public globalVariable: GlobalVariableProvider,
     public clipboard: Clipboard,
     public toastCtrl: ToastController,
-    private iab: InAppBrowser
+    public iab: InAppBrowser,
+    public desktopService: DesktopProvider
   ) { }
 
   ngOnInit() {
@@ -66,7 +68,12 @@ export class SiteComponent implements OnInit {
         {
           text: 'Open in connected device',
           icon: 'ios-laptop',
-          handler: () => { },
+          handler: () => {
+            actionSheet.dismiss().then(() => {
+              this.desktopService.openInBrowser(this.site.username, this.site.password);
+            });
+            return false;
+          },
           cssClass: !this.globalVariable.isConnectedToDevice ? 'hidden' : ''
         },
         {
@@ -110,21 +117,12 @@ export class SiteComponent implements OnInit {
     let code = `
       var username = document.getElementById('m_login_email');
       var password = document.getElementById('m_login_password');
-      var strUsername = '0983146993';
-      var strPassword = '272548476';
+      var strUsername = 'tet.nguyen.355744';
+      var strPassword = 'zaq12wsx';
       if (document.getElementById('m_login_email')) {
-
-        var i;
-        for (i = 0; i < strUsername.length; i++) {
-          setTimeout(function(){
-            username.value = strUsername.substring(0, i);
-          }, 100);
-        }
-        for (i = 0; i < strPassword.length; i++) {
-          setTimeout(function(){
-            password.value = strPassword.substring(0, i);
-          }, 100);
-        }
+        username.value = strUsername;
+        password.value = strPassword;
+        
         document.getElementById("m_login_password").focus();
         var option = {
           which: 13,

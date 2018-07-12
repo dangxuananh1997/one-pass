@@ -24,7 +24,7 @@ export class LoginPage {
 
   ionViewDidLoad() {
     if (this.globalVariable.isLogin) {
-      this.username = 'johndoe';
+      this.username = 'test';
     }
     this.faio.isAvailable().then(
      () => {
@@ -40,7 +40,7 @@ export class LoginPage {
     }).present();
 
     setTimeout(() => {
-      if (this.username == 'johndoe' && this.password == '123456' || this.isLogin) {
+      if (this.username == 'test' && this.password == '123456' || this.isLogin) {
         this.navCtrl.setRoot(TabsPage);
         this.globalVariable.isLogin = true;
       } else {

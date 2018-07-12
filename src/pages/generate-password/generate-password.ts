@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { Clipboard } from '@ionic-native/clipboard';
 import { GlobalVariableProvider } from '../../providers/global-variable/global-variable';
+import { DesktopProvider } from '../../providers/desktop/desktop';
 
 @Component({
   selector: 'page-generate-password',
@@ -18,7 +19,8 @@ export class GeneratePasswordPage implements OnInit {
     public navParams: NavParams,
     public clipboard: Clipboard,
     public toastCtrl: ToastController,
-    public globalVariables: GlobalVariableProvider
+    public globalVariables: GlobalVariableProvider,
+    public desktopService: DesktopProvider
   ) { }
 
   ngOnInit() {
@@ -37,6 +39,15 @@ export class GeneratePasswordPage implements OnInit {
     this.clipboard.copy(s);
     this.toastCtrl.create({
       message: 'Copied to clipboard!',
+      duration: 1500,
+      position: 'bottom'
+    }).present();
+  }
+
+  copyToDesktop() {
+    this.desktopService.copyToClipboard(this.password);
+    this.toastCtrl.create({
+      message: 'Copied to Desktop!',
       duration: 1500,
       position: 'bottom'
     }).present();

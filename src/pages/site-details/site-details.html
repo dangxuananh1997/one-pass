@@ -74,7 +74,7 @@
       <button ion-button class="action-button" (click)="copyToClipboard(site.username)">Copy username</button>
       <button ion-button class="action-button" (click)="copyToClipboard(site.password)">Copy password</button>
       <button ion-button class="action-button" (click)="openSite()">Open in browser</button>
-      <button ion-button class="action-button" *ngIf="isConnectToDevice">Open in connected device</button>
+      <button ion-button class="action-button" *ngIf="isConnectToDevice" (click)="openInConnectedDevice()">Open in connected device</button>
     </ng-container>
   </ion-row>
 </ion-content>
